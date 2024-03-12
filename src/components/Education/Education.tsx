@@ -1,36 +1,37 @@
 import React from 'react';
 import { DatePicker, Input, Select } from 'antd';
 import { Card } from '../Сard/Сard';
-import { InfoBlock } from '../InfoBlock/InfoBlock';
+import { FormItem } from '../FormItem/FormItem';
+import { DegreeOptions } from './consts/consts';
 
 export const Education = () => {
     return (
         <Card title="Образование">
-            <InfoBlock label="Учреждение">
+            <FormItem label="Учреждение">
                 <Input placeholder="Учреждение" />
-            </InfoBlock>
-            <InfoBlock label="Дата окончания">
+            </FormItem>
+            <FormItem label="Дата окончания">
                 <DatePicker placeholder="Дата окончания" />
-            </InfoBlock>
-            <InfoBlock label="Степень">
+            </FormItem>
+            <FormItem label="Степень">
                 <Select
                     defaultValue={{
-                        value: 'Бакалавриат',
-                        label: 'Бакалавриат'
+                        value: DegreeOptions.Bachelor,
+                        label: DegreeOptions.Bachelor
                     }}
                     optionFilterProp="label"
                     options={[
                         {
-                            value: 'Бакалавриат',
-                            label: 'Бакалавриат'
+                            value: DegreeOptions.Bachelor,
+                            label: DegreeOptions.Bachelor
                         },
                         {
-                            value: 'Магистратура',
-                            label: 'Магистратура'
+                            value: DegreeOptions.Master,
+                            label: DegreeOptions.Master
                         }
                     ]}
                 />
-            </InfoBlock>
+            </FormItem>
         </Card>
     );
 };

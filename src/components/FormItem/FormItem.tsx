@@ -2,11 +2,11 @@ import React, { PropsWithChildren } from 'react';
 
 import * as S from './style';
 
-export interface InfoBlockProps {
+export interface FormItemProps {
     label: string;
 }
 
-const InfoBlock: React.FC<PropsWithChildren<InfoBlockProps>> = ({
+const FormItem: React.FC<PropsWithChildren<FormItemProps>> = ({
     children,
     label
 }) => {
@@ -20,4 +20,4 @@ const InfoBlock: React.FC<PropsWithChildren<InfoBlockProps>> = ({
     );
 };
 
-export { InfoBlock };
+export { FormItem };

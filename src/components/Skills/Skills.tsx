@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Card } from '../Сard/Сard';
-import { InfoBlock } from '../InfoBlock/InfoBlock';
+import { FormItem } from '../FormItem/FormItem';
 import { Select, List } from 'antd';
-import skillsData from './Skills.json';
+import { selectOptions } from './consts';
 
 export const Skills = () => {
     const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -11,14 +11,9 @@ export const Skills = () => {
         setSelectedSkills(selected);
     };
 
-    const selectOptions = skillsData.map((skill) => ({
-        value: skill.name,
-        label: <span>{skill.name}</span>
-    }));
-
     return (
         <Card title="Навыки">
-            <InfoBlock label="Навыки">
+            <FormItem label="Навыки">
                 <Select
                     showSearch
                     mode="multiple"
@@ -27,7 +22,7 @@ export const Skills = () => {
                     onChange={handleSkillChange}
                     allowClear
                 />
-            </InfoBlock>
+            </FormItem>
             <List
                 locale={{ emptyText: 'Навыки не выбраны' }}
                 dataSource={selectedSkills}
