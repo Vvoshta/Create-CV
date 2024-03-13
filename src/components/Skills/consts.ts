@@ -11,7 +11,7 @@ export enum SkillsOptions {
     Vite = 'Vite'
 }
 
-export const selectOptions = Object.keys(SkillsOptions).map((key) => ({
+export const skillsOptions = Object.keys(SkillsOptions).map((key) => ({
     value: SkillsOptions[key as keyof typeof SkillsOptions],
     label: SkillsOptions[key as keyof typeof SkillsOptions]
 }));

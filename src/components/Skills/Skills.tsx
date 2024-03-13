@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card } from '../Сard/Сard';
 import { FormItem } from '../FormItem/FormItem';
 import { Select, List } from 'antd';
-import { selectOptions } from './consts';
+import { skillsOptions } from './consts';
 
 export const Skills = () => {
     const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -18,7 +18,7 @@ export const Skills = () => {
                     showSearch
                     mode="multiple"
                     placeholder="Выберите навыки"
-                    options={selectOptions}
+                    options={skillsOptions}
                     onChange={handleSkillChange}
                     allowClear
                 />

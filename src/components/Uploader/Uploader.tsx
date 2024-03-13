@@ -46,7 +46,6 @@ export const Uploader: React.FC = () => {
                 listType="picture-card"
                 className="avatar-uploader"
                 showUploadList={false}
-                action="POST"
                 onChange={handleChange}
             >
                 {imageUrl ? (
