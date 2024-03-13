@@ -3,6 +3,7 @@ import { Header } from './components/Header/Header';
 import { PersonalInfo } from './components/PersonalInfo/PersonalInfo';
 import { Education } from './components/Education/Education';
 import { Skills } from './components/Skills/Skills';
+import { WorkExp } from './components/WorkExp/WorkExp';
 
 import './App.scss';
 
@@ -13,6 +14,7 @@ function App() {
             <PersonalInfo />
             <Education />
             <Skills />
+            <WorkExp />
         </div>
     );
 }
