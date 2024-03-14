@@ -6,7 +6,11 @@ import * as S from './style';
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-export const WorkExpItem = ({ index }: { index: number }) => {
+interface WorkProps {
+    index: number;
+}
+
+export const WorkExpItem: React.FC<WorkProps> = ({ index }) => {
     return (
         <>
             <S.Header>Место работы - {index}</S.Header>

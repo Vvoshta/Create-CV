@@ -4,22 +4,19 @@ import { Card } from '../Сard/Сard';
 import { WorkExpItem } from '../WorkExpItem/WorkExpItem';
 
 export const WorkExp = () => {
-    const [workExpItems, setWorkExpItems] = useState([
-        <WorkExpItem key={0} index={1} />
-    ]);
+    const [workExpItems, setWorkExpItems] = useState([{ key: 0, index: 1 }]);
 
-    const addWorkExpItem = () => {
-        const newIndex = workExpItems.length + 1;
-        setWorkExpItems([
-            ...workExpItems,
-            <WorkExpItem key={newIndex} index={newIndex} />
-        ]);
+    const handleWorkExpItem = () => {
+        const newIndex = Math.random();
+        setWorkExpItems([...workExpItems, { key: newIndex, index: newIndex }]);
     };
 
     return (
         <Card title="Опыт работы">
-            {workExpItems}
-            <Button type="primary" onClick={addWorkExpItem}>
+            {workExpItems.map((item) => (
+                <WorkExpItem key={item.key} index={item.index} />
+            ))}
+            <Button type="primary" onClick={handleWorkExpItem}>
                 Добавить еще
             </Button>
         </Card>
