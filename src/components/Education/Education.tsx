@@ -2,7 +2,6 @@ import React from 'react';
 import { DatePicker, Input, Select } from 'antd';
 import { Card } from '../Сard/Сard';
 import { FormItem } from '../FormItem/FormItem';
-import { degreeOptions, DegreeOptions } from './consts';
 import { DegreeOptions, degreeOptions } from './consts';
 
 export const Education = () => {
@@ -17,8 +16,8 @@ export const Education = () => {
             <FormItem label="Степень">
                 <Select
                     optionFilterProp="label"
-                    options={degreeOptions}
                     defaultValue={DegreeOptions.Bachelor}
+                    options={degreeOptions}
                 />
             </FormItem>
         </Card>
