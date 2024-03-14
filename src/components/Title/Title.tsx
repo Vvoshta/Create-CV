@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as S from './style';
 
-export interface TitleProps {
+interface TitleProps {
     title: string;
 }
 

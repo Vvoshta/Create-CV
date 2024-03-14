@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react';
 
 import * as S from './style';
 
-export interface FormItemProps {
+interface FormItemProps {
     label: string;
 }
 
