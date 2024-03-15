@@ -13,7 +13,11 @@ const getBase64 = (img: FileType, callback: (url: string) => void) => {
     reader.readAsDataURL(img);
 };
 
-export const Uploader: React.FC = () => {
+type UploaderProps = {
+    onChange: (file: File) => void;
+};
+
+export const Uploader: React.FC<UploaderProps> = ({ onChange }) => {
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState<string>();
 
@@ -24,6 +28,7 @@ export const Uploader: React.FC = () => {
             return;
         }
         if (info.file.status === 'done') {
+            onChange(info.file.originFileObj as FileType);
             getBase64(info.file.originFileObj as FileType, (url) => {
                 console.log(info.file.status);
                 setLoading(false);
