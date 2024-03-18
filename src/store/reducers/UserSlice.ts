@@ -5,7 +5,7 @@ interface UserState {
     placeOfLiving: string;
     phoneNumber: string;
     birthday: string;
-    avatar: File | null;
+    avatar: string;
 }
 
 const initialState: UserState = {
@@ -13,7 +13,7 @@ const initialState: UserState = {
     placeOfLiving: '',
     phoneNumber: '',
     birthday: '',
-    avatar: null
+    avatar: ''
 };
 
 const userSlice = createSlice({
@@ -32,7 +32,7 @@ const userSlice = createSlice({
         setBirthday(state, action: PayloadAction<string>) {
             state.birthday = action.payload;
         },
-        setAvatar(state, action: PayloadAction<File>) {
+        setAvatar(state, action: PayloadAction<string>) {
             state.avatar = action.payload;
         }
     }

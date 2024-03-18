@@ -14,7 +14,7 @@ const getBase64 = (img: FileType, callback: (url: string) => void) => {
 };
 
 type UploaderProps = {
-    onChange: (file: File) => void;
+    onChange: (base64String: string) => void;
 };
 
 export const Uploader: React.FC<UploaderProps> = ({ onChange }) => {
@@ -28,11 +28,10 @@ export const Uploader: React.FC<UploaderProps> = ({ onChange }) => {
             return;
         }
         if (info.file.status === 'done') {
-            onChange(info.file.originFileObj as FileType);
             getBase64(info.file.originFileObj as FileType, (url) => {
-                console.log(info.file.status);
                 setLoading(false);
                 setImageUrl(url);
+                onChange(url);
             });
         }
     };
