@@ -11,7 +11,7 @@ import {
     setPhoneNumber,
     setBirthday,
     setAvatar
-} from '../../store/reducers/UserSlice';
+} from '../../store/reducers/PersonalInfoSlice';
 
 export const PersonalInfo = () => {
     const dispatch = useDispatch();
@@ -63,7 +63,7 @@ export const PersonalInfo = () => {
                     onChange={handleBirthdayChange}
                 />
             </FormItem>
-            <Uploader onChange={handleAvatarChange} />
+            <Uploader onBase64Change={handleAvatarChange} />
         </Card>
     );
 };
