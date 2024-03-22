@@ -16,7 +16,7 @@ const initialState: UserState = {
     avatar: ''
 };
 
-const userSlice = createSlice({
+const PersonalInfoSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -44,6 +44,6 @@ export const {
     setPhoneNumber,
     setBirthday,
     setAvatar
-} = userSlice.actions;
+} = PersonalInfoSlice.actions;
 
-export default userSlice.reducer;
+export default PersonalInfoSlice.reducer;
