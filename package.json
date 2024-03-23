@@ -12,6 +12,8 @@
         "@types/react-dom": "^18.2.21",
         "@types/styled-components": "^5.1.34",
         "antd": "^5.15.3",
+        "dayjs": "^1.11.10",
+        "moment": "^2.30.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-scripts": "5.0.1",
