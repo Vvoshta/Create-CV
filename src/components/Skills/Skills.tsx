@@ -4,11 +4,16 @@ import { FormItem } from '../FormItem/FormItem';
 import { Select, List } from 'antd';
 import { skillsOptions } from './consts';
 
+import { useDispatch } from 'react-redux';
+import { setSkills as setSkillsAction } from '../../store/reducers/SkillsSlice';
+
 export const Skills = () => {
+    const dispatch = useDispatch();
     const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
     const handleSkillChange = (selected: string[]) => {
         setSelectedSkills(selected);
+        dispatch(setSkillsAction(selected));
     };
 
     return (
