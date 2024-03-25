@@ -1,33 +1,34 @@
-// WorkExp.tsx
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'antd';
 import { Card } from '../Сard/Сard';
 import { WorkExpItem } from '../WorkExpItem/WorkExpItem';
+import { RootState } from '../../store/store';
 
-import { useDispatch } from 'react-redux';
-import { addWorkplace, WorkPlace } from '../../store/reducers/WorkExpSlice';
+import { addWorkplace } from '../../store/reducers/WorkExpSlice';
 
 export const WorkExp = () => {
     const dispatch = useDispatch();
 
-    const [workExpItems, setWorkExpItems] = useState([{ key: 0, index: 1 }]);
+    const workExpItems = useSelector(
+        (state: RootState) => state.workExpReducer.workplaces
+    );
 
     const handleWorkExpItem = () => {
-        const newIndex = Math.random();
-        setWorkExpItems([...workExpItems, { key: newIndex, index: newIndex }]);
+        dispatch(addWorkplace());
     };
 
-    const handleWorkplaceChange = (workplace: WorkPlace) => {
-        dispatch(addWorkplace(workplace));
-    };
+    useEffect(() => {
+        dispatch(addWorkplace());
+    }, []);
 
     return (
         <Card title="Опыт работы">
-            {workExpItems.map((item) => (
+            {workExpItems.map((workplace, index) => (
                 <WorkExpItem
-                    key={item.key}
-                    index={item.index}
-                    onWorkplaceChange={handleWorkplaceChange}
+                    key={index}
+                    index={index + 1}
+                    workplace={workplace}
                 />
             ))}
             <Button type="primary" onClick={handleWorkExpItem}>

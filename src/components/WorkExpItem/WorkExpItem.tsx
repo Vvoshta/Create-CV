@@ -12,7 +12,8 @@ const { TextArea } = Input;
 
 interface WorkProps {
     index: number;
-    onWorkplaceChange: (workplace: WorkPlace) => void;
+    // onWorkplaceChange: (workplace: WorkPlace) => void;
+    workplace: WorkPlace;
 }
 
 export const WorkExpItem: React.FC<WorkProps> = ({ index }) => {

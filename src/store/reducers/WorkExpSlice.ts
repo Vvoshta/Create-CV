@@ -20,8 +20,15 @@ const WorkExpSlice = createSlice({
     name: 'work-experience',
     initialState,
     reducers: {
-        addWorkplace(state, action: PayloadAction<WorkPlace>) {
-            state.workplaces.push(action.payload);
+        addWorkplace(state) {
+            const initialWorkPlace: WorkPlace = {
+                company: '',
+                job: '',
+                workPeriodStart: '',
+                workPeriodEnd: '',
+                description: ''
+            };
+            state.workplaces.push(initialWorkPlace);
         },
         updateWorkplace(
             state,
