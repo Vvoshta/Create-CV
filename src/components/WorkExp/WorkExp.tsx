@@ -1,11 +1,11 @@
+// WorkExp.tsx
 import React, { useState } from 'react';
 import { Button } from 'antd';
 import { Card } from '../Сard/Сard';
 import { WorkExpItem } from '../WorkExpItem/WorkExpItem';
 
 import { useDispatch } from 'react-redux';
-import { addWorkplace } from '../../store/reducers/WorkExpSlice';
-import { WorkPlace } from '../../store/reducers/WorkExpSlice';
+import { addWorkplace, WorkPlace } from '../../store/reducers/WorkExpSlice';
 
 export const WorkExp = () => {
     const dispatch = useDispatch();

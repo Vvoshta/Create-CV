@@ -2,10 +2,10 @@ import React from 'react';
 import { DatePicker, Input } from 'antd';
 import { FormItem } from '../FormItem/FormItem';
 import * as S from './style';
+import { Dayjs } from 'dayjs';
 
 import { useDispatch } from 'react-redux';
-import { updateWorkplace } from '../../store/reducers/WorkExpSlice';
-import { WorkPlace } from '../../store/reducers/WorkExpSlice';
+import { updateWorkplace, WorkPlace } from '../../store/reducers/WorkExpSlice';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -31,7 +31,7 @@ export const WorkExpItem: React.FC<WorkProps> = ({ index }) => {
     };
 
     const handleWorkPeriodChange = (
-        dates: any,
+        dates: [Dayjs | null, Dayjs | null],
         dateStrings: [string, string]
     ) => {
         const [start, end] = dateStrings;
