@@ -14,10 +14,6 @@ export const Preview: React.FC = () => {
         setIsModalOpen(true);
     };
 
-    const handlePrint = () => {
-        window.print();
-    };
-
     const handleCancel = () => {
         setIsModalOpen(false);
     };
@@ -41,7 +37,7 @@ export const Preview: React.FC = () => {
             >
                 <PreviewBlock>
                     <S.BtnWrapper>
-                        <Button onClick={handlePrint}>Скачать</Button>
+                        <Button>Скачать</Button>
                     </S.BtnWrapper>
                     <LeftPreviewPart></LeftPreviewPart>
                     <RightPreviewPart></RightPreviewPart>
