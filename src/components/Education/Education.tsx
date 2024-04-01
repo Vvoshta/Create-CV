@@ -14,27 +14,32 @@ import {
 export const Education = () => {
     const dispatch = useDispatch();
 
-    const handleInstitution = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInstitutionChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
         dispatch(setInstitution(e.target.value));
     };
 
-    const handleGraduationDate = (dateString: string) => {
+    const handleGraduationDateChange = (dateString: string) => {
         dispatch(setGraduationDate(dateString));
     };
 
-    const handleDegree = (selectedDegree: DegreeOptions) => {
+    const handleDegreeChange = (selectedDegree: DegreeOptions) => {
         dispatch(setDegree(selectedDegree));
     };
 
     return (
         <Card title="Образование">
             <FormItem label="Учреждение">
-                <Input placeholder="Учреждение" onChange={handleInstitution} />
+                <Input
+                    placeholder="Учреждение"
+                    onChange={handleInstitutionChange}
+                />
             </FormItem>
             <FormItem label="Дата окончания">
                 <DatePicker
                     placeholder="Дата окончания"
-                    onChange={handleGraduationDate}
+                    onChange={handleGraduationDateChange}
                 />
             </FormItem>
             <FormItem label="Степень">
@@ -42,7 +47,7 @@ export const Education = () => {
                     optionFilterProp="label"
                     defaultValue={DegreeOptions.Bachelor}
                     options={degreeOptions}
-                    onChange={handleDegree}
+                    onChange={handleDegreeChange}
                 />
             </FormItem>
         </Card>

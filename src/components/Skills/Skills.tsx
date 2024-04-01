@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Card } from '../Сard/Сard';
 import { FormItem } from '../FormItem/FormItem';
 import { Select, List } from 'antd';
 import { skillsOptions } from './consts';
+import { RootState } from '../../store/store';
+
+import { setSkills as setSkillsAction } from '../../store/reducers/SkillsSlice';
 
 export const Skills = () => {
-    const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+    const dispatch = useDispatch();
+
+    const selectedSkills = useSelector(
+        (state: RootState) => state.skillsReducer.skills
+    );
 
     const handleSkillChange = (selected: string[]) => {
-        setSelectedSkills(selected);
+        dispatch(setSkillsAction(selected));
     };
 
     return (
