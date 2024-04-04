@@ -12,7 +12,6 @@ const { TextArea } = Input;
 
 interface WorkProps {
     index: number;
-    // onWorkplaceChange: (workplace: WorkPlace) => void;
     workplace: WorkPlace;
 }
 

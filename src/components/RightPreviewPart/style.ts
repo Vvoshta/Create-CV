@@ -29,3 +29,16 @@ export const BlockTitle = styled.p`
     gap: 8px;
     margin-bottom: 10px;
 `;
+
+export const EducationBlock = styled.div`
+    background: rgb(238, 244, 255);
+    padding: 11px 6px;
+`;
+
+export const InstitutionTitle = styled.p`
+    font-size: 18px;
+`;
+
+export const Degree = styled.span`
+    font-weight: bold;
+`;
