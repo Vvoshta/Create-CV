@@ -2,10 +2,7 @@ import React from 'react';
 import { CalendarOutlined } from '@ant-design/icons';
 import * as S from './style';
 import { WorkPlace } from '../../store/reducers/WorkExpSlice';
-
-import dayjs from 'dayjs';
-
-// import { RootState } from '../../store/store';
+import { dateFormatted } from '../../utils/utils';
 
 export const JobPreview: React.FC<{ workplace: WorkPlace }> = ({
     workplace
@@ -17,9 +14,8 @@ export const JobPreview: React.FC<{ workplace: WorkPlace }> = ({
             {workplace.workPeriodStart && workplace.workPeriodEnd && (
                 <S.WorkPeriod>
                     <CalendarOutlined />
-                    {dayjs(workplace.workPeriodStart).format(
-                        'DD.MM.YYYY'
-                    )} - {dayjs(workplace.workPeriodEnd).format('DD.MM.YYYY')}
+                    {dateFormatted(workplace.workPeriodStart)} -{' '}
+                    {dateFormatted(workplace.workPeriodEnd)}
                 </S.WorkPeriod>
             )}
             {workplace.description && (
