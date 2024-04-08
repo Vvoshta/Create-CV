@@ -15,7 +15,7 @@ interface WorkProps {
     workplace: WorkPlace;
 }
 
-export const WorkExpItem: React.FC<WorkProps> = ({ index, workplace }) => {
+export const WorkExpItem: React.FC<WorkProps> = ({ index }) => {
     const dispatch = useDispatch();
 
     const handleCompanyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
