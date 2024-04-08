@@ -1,55 +1,43 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { ReadOutlined, CalendarOutlined } from '@ant-design/icons';
 import { JobPreview } from '../JobPreview/JobPreview';
+import { useAppSelector } from '../../hooks';
+import { dateFormatted } from '../../utils/utils';
+
 import * as S from './style';
 
 import dayjs from 'dayjs';
 
-import { RootState } from '../../store/store';
-
 const RightPreviewPart: React.FC = () => {
-    const graduationDate = dayjs(
-        useSelector((state: RootState) => state.educationReducer.graduationDate)
-    );
-
-    const workExpItems = useSelector((state: RootState) =>
-        state.workExpReducer.workplaces.filter((workplace) =>
+    const workExpItems = useAppSelector((state) =>
+        state.workExp.workplaces.filter((workplace) =>
             Object.values(workplace).some((value) => !!value)
         )
     );
 
+    const personalInfo = useAppSelector((state) => state.personalInfo);
+    const education = useAppSelector((state) => state.education);
+
+    const graduationDate = dayjs(education.graduationDate);
+
     return (
         <S.Wrapper>
-            <S.Title>
-                {useSelector(
-                    (state: RootState) => state.personalInfoReducer.fullName
-                )}
-            </S.Title>
+            <S.Title>{personalInfo.fullName}</S.Title>
             <S.Profession>Frontend Developer</S.Profession>
             <S.BlockTitle>
                 <ReadOutlined />
                 Образование
             </S.BlockTitle>
             <S.EducationBlock>
-                <S.InstitutionTitle>
-                    {useSelector(
-                        (state: RootState) => state.educationReducer.institution
-                    )}
-                </S.InstitutionTitle>
+                <S.InstitutionTitle>{education.institution}</S.InstitutionTitle>
                 <p>
-                    Степень -{' '}
-                    <S.Degree>
-                        {useSelector(
-                            (state: RootState) => state.educationReducer.degree
-                        )}
-                    </S.Degree>
+                    Степень - <S.Degree>{education.degree}</S.Degree>
                 </p>
                 <p>
                     Дата окончания -{' '}
                     <b>
                         {graduationDate.isValid() &&
-                            graduationDate.format('DD.MM.YYYY')}
+                            dateFormatted(graduationDate)}
                     </b>
                 </p>
             </S.EducationBlock>

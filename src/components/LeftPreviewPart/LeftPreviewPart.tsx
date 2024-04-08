@@ -1,49 +1,33 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks';
 import { ConsoleSqlOutlined } from '@ant-design/icons';
+import { dateFormatted, agesFormatted } from '../../utils/utils';
 import * as S from './style';
 
 import dayjs from 'dayjs';
 
-import { RootState } from '../../store/store';
-
 const LeftPreviewPart: React.FC = () => {
-    const avatar = useSelector(
-        (state: RootState) => state.personalInfoReducer.avatar
-    );
+    const personalInfo = useAppSelector((state) => state.personalInfo);
+    const skills = useAppSelector((state) => state.skills);
 
-    const birthday = dayjs(
-        useSelector((state: RootState) => state.personalInfoReducer.birthday)
-    );
-    const ageInMilliseconds = dayjs().diff(birthday, 'millisecond');
-    const ageInYears = Math.floor(
-        ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25)
-    );
-
-    const selectedSkills = useSelector(
-        (state: RootState) => state.skillsReducer.skills
-    );
-
-    const placeOfLiving = useSelector(
-        (state: RootState) => state.personalInfoReducer.placeOfLiving
-    );
+    const birthday = dayjs(personalInfo.birthday);
 
     return (
         <S.Wrapper>
-            <S.Avatar src={avatar}></S.Avatar>
+            <S.Avatar src={personalInfo.avatar}></S.Avatar>
             <S.Title>Возраст</S.Title>
-            {birthday.isValid()
-                ? `${ageInYears} года (${birthday.format('DD.MM.YYYY')})`
+            {birthday.isValid() && birthday.isBefore(dayjs())
+                ? `${agesFormatted(birthday)} года (${dateFormatted(birthday)})`
                 : ''}
             <S.Title>Место жительства</S.Title>
-            {placeOfLiving && placeOfLiving}
+            {personalInfo.placeOfLiving && personalInfo.placeOfLiving}
             <S.SkillsWrapper>
                 <S.SkillsTitle>
                     <ConsoleSqlOutlined />
                     Навыки
                 </S.SkillsTitle>
                 <S.SkillsList>
-                    {selectedSkills.map((skill: string) => (
+                    {skills.skills.map((skill: string) => (
                         <li key={skill}>{skill}</li>
                     ))}
                 </S.SkillsList>
