@@ -13,4 +13,4 @@ export const store = configureStore({
     }
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof store.getState>;
