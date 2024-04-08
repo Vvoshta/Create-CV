@@ -1,16 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import personalInfoReducer from './reducers/PersonalInfoSlice';
 import educationReducer from './reducers/EducationSlice';
 import skillsReducer from './reducers/SkillsSlice';
 import workExpReducer from './reducers/WorkExpSlice';
 
-export const store = configureStore({
-    reducer: {
-        personalInfoReducer,
-        educationReducer,
-        skillsReducer,
-        workExpReducer
-    }
+const rootReducer = combineReducers({
+    personalInfoReducer,
+    educationReducer,
+    skillsReducer,
+    workExpReducer
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+export const store = configureStore({
+    reducer: rootReducer
+});
+
+export type RootState = ReturnType<typeof rootReducer>;

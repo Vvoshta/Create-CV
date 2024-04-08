@@ -47,7 +47,10 @@ const RightPreviewPart: React.FC = () => {
                 </p>
                 <p>
                     Дата окончания -{' '}
-                    <b>{graduationDate.format('DD.MM.YYYY')}</b>
+                    <b>
+                        {graduationDate.isValid() &&
+                            graduationDate.format('DD.MM.YYYY')}
+                    </b>
                 </p>
             </S.EducationBlock>
             <S.BlockTitle>

@@ -30,7 +30,7 @@ const LeftPreviewPart: React.FC = () => {
 
     return (
         <S.Wrapper>
-            <S.Avatar src={avatar} alt="Avatar"></S.Avatar>
+            <S.Avatar src={avatar}></S.Avatar>
             <S.Title>Возраст</S.Title>
             {birthday.isValid()
                 ? `${ageInYears} года (${birthday.format('DD.MM.YYYY')})`
