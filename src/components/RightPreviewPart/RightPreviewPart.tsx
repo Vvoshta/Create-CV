@@ -2,7 +2,7 @@ import React from 'react';
 import { ReadOutlined, CalendarOutlined } from '@ant-design/icons';
 import { JobPreview } from '../JobPreview/JobPreview';
 import { useAppSelector } from '../../hooks/hooks';
-import { dateFormatted } from '../../utils/utils';
+import { getFormattedDate } from '../../utils/utils';
 
 import * as S from './style';
 
@@ -37,7 +37,7 @@ const RightPreviewPart: React.FC = () => {
                     Дата окончания -{' '}
                     <b>
                         {graduationDate.isValid() &&
-                            dateFormatted(graduationDate)}
+                            getFormattedDate(graduationDate)}
                     </b>
                 </p>
             </S.EducationBlock>

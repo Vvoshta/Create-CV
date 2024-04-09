@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { ConsoleSqlOutlined } from '@ant-design/icons';
-import { dateFormatted, agesFormatted } from '../../utils/utils';
+import { getFormattedDate, getFormattedAges } from '../../utils/utils';
 import * as S from './style';
 
 import dayjs from 'dayjs';
@@ -17,7 +17,7 @@ const LeftPreviewPart: React.FC = () => {
             <S.Avatar src={personalInfo.avatar}></S.Avatar>
             <S.Title>Возраст</S.Title>
             {birthday.isValid() && birthday.isBefore(dayjs())
-                ? `${agesFormatted(birthday)} года (${dateFormatted(birthday)})`
+                ? `${getFormattedAges(birthday)} года (${getFormattedDate(birthday)})`
                 : ''}
             <S.Title>Место жительства</S.Title>
             {personalInfo.placeOfLiving && personalInfo.placeOfLiving}
