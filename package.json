@@ -1,5 +1,6 @@
 {
-    "name": "my-app",
+    "name": "create-cv",
+    "homepage": "https://vvoshta.github.io/Create-CV/",
     "version": "0.1.0",
     "private": true,
     "dependencies": {

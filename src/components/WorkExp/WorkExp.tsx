@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks/hooks';
 import { Button } from 'antd';
 import { Card } from '../Сard/Сard';
 import { WorkExpItem } from '../WorkExpItem/WorkExpItem';
@@ -23,11 +23,7 @@ export const WorkExp = () => {
     return (
         <Card title="Опыт работы">
             {workExp.workplaces.map((workplace, index) => (
-                <WorkExpItem
-                    key={index}
-                    index={index + 1}
-                    workplace={workplace}
-                />
+                <WorkExpItem key={index} index={index} workplace={workplace} />
             ))}
             <Button type="primary" onClick={handleWorkExpItem}>
                 Добавить еще

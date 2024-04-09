@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks/hooks';
 import { Card } from '../Сard/Сard';
 import { FormItem } from '../FormItem/FormItem';
 import { Select, List } from 'antd';

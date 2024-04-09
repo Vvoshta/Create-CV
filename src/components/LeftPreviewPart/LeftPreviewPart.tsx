@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks/hooks';
 import { ConsoleSqlOutlined } from '@ant-design/icons';
 import { dateFormatted, agesFormatted } from '../../utils/utils';
 import * as S from './style';

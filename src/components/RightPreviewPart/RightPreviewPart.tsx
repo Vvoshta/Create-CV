@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReadOutlined, CalendarOutlined } from '@ant-design/icons';
 import { JobPreview } from '../JobPreview/JobPreview';
-import { useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks/hooks';
 import { dateFormatted } from '../../utils/utils';
 
 import * as S from './style';

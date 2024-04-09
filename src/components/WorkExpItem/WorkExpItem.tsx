@@ -56,7 +56,7 @@ export const WorkExpItem: React.FC<WorkProps> = ({ index }) => {
 
     return (
         <>
-            <S.Header>Место работы - {index}</S.Header>
+            <S.Header>Место работы - {index + 1}</S.Header>
             <FormItem label="Компания">
                 <Input placeholder="Компания" onChange={handleCompanyChange} />
             </FormItem>
