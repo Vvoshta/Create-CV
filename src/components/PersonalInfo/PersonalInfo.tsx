@@ -4,6 +4,8 @@ import { Card } from '../Сard/Сard';
 import { FormItem } from '../FormItem/FormItem';
 import { Uploader } from '../Uploader/Uploader';
 
+import dayjs from 'dayjs';
+
 import { useDispatch } from 'react-redux';
 import {
     setFullName,
@@ -33,6 +35,7 @@ export const PersonalInfo = () => {
     };
 
     const handleBirthdayChange = (dateString: string) => {
+        dateString = dayjs().format();
         dispatch(setBirthday(dateString));
     };
 

@@ -1,6 +1,6 @@
 export enum DegreeOptions {
-    Bachelor = 'Бакалавриат',
-    Master = 'Магистратура'
+    Bachelor = 'Бакалавр',
+    Master = 'Магистр'
 }
 
 export const degreeOptions = Object.keys(DegreeOptions).map((key) => ({

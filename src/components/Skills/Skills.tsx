@@ -1,19 +1,17 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../../hooks/hooks';
 import { Card } from '../Сard/Сard';
 import { FormItem } from '../FormItem/FormItem';
 import { Select, List } from 'antd';
 import { skillsOptions } from './consts';
-import { RootState } from '../../store/store';
 
 import { setSkills as setSkillsAction } from '../../store/reducers/SkillsSlice';
 
 export const Skills = () => {
     const dispatch = useDispatch();
 
-    const selectedSkills = useSelector(
-        (state: RootState) => state.skillsReducer.skills
-    );
+    const skills = useAppSelector((state) => state.skills);
 
     const handleSkillChange = (selected: string[]) => {
         dispatch(setSkillsAction(selected));
@@ -33,7 +31,7 @@ export const Skills = () => {
             </FormItem>
             <List
                 locale={{ emptyText: 'Навыки не выбраны' }}
-                dataSource={selectedSkills}
+                dataSource={skills.skills}
                 renderItem={(item) => <List.Item>{item}</List.Item>}
             />
         </Card>

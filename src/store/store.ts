@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import personalInfoReducer from './reducers/PersonalInfoSlice';
-import educationReducer from './reducers/EducationSlice';
-import skillsReducer from './reducers/SkillsSlice';
-import workExpReducer from './reducers/WorkExpSlice';
+import personalInfo from './reducers/PersonalInfoSlice';
+import education from './reducers/EducationSlice';
+import skills from './reducers/SkillsSlice';
+import workExp from './reducers/WorkExpSlice';
 
 export const store = configureStore({
     reducer: {
-        personalInfoReducer,
-        educationReducer,
-        skillsReducer,
-        workExpReducer
+        personalInfo,
+        education,
+        skills,
+        workExp
     }
 });
 
