@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useRef } from 'react';
 import { Modal, FloatButton, Button } from 'antd';
+import { useReactToPrint } from 'react-to-print';
 
 import { PreviewBlock } from '../PreviewBlock/PreviewBlock';
 import { LeftPreviewPart } from '../LeftPreviewPart/LeftPreviewPart';
@@ -9,14 +11,14 @@ import * as S from './style';
 
 export const Preview: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const componentRef = useRef<HTMLDivElement>(null);
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
+    const showModal = () => setIsModalOpen(true);
+    const handleCancel = () => setIsModalOpen(false);
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current
+    });
 
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
     return (
         <>
             <FloatButton
@@ -35,13 +37,13 @@ export const Preview: React.FC = () => {
                 width={1000}
                 footer={null}
             >
-                <PreviewBlock>
-                    <S.BtnWrapper>
-                        <Button>Скачать</Button>
-                    </S.BtnWrapper>
-                    <LeftPreviewPart></LeftPreviewPart>
-                    <RightPreviewPart></RightPreviewPart>
+                <PreviewBlock componentRef={componentRef}>
+                    <LeftPreviewPart />
+                    <RightPreviewPart />
                 </PreviewBlock>
+                <S.BtnWrapper>
+                    <Button onClick={handlePrint}>Скачать</Button>
+                </S.BtnWrapper>
             </Modal>
         </>
     );

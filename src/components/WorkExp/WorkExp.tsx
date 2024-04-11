@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../hooks/hooks';
 import { Button } from 'antd';
@@ -15,10 +15,6 @@ export const WorkExp = () => {
     const handleWorkExpItem = () => {
         dispatch(addWorkplace());
     };
-
-    useEffect(() => {
-        dispatch(addWorkplace());
-    }, []);
 
     return (
         <Card title="Опыт работы">
