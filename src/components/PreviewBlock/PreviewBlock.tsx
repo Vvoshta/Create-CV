@@ -1,6 +1,14 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import * as S from './style';
 
-export const PreviewBlock: React.FC<PropsWithChildren> = ({ children }) => {
-    return <S.Wrapper>{children}</S.Wrapper>;
+interface PreviewBlockProps {
+    componentRef: React.RefObject<HTMLDivElement>;
+    children: React.ReactNode;
+}
+
+export const PreviewBlock: React.FC<PreviewBlockProps> = ({
+    componentRef,
+    children
+}) => {
+    return <S.Wrapper ref={componentRef}>{children}</S.Wrapper>;
 };

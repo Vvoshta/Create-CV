@@ -12,8 +12,16 @@ export interface WorkPlace {
     description: string;
 }
 
+const createInitialWorkplace = (): WorkPlace => ({
+    company: '',
+    job: '',
+    workPeriodStart: '',
+    workPeriodEnd: '',
+    description: ''
+});
+
 const initialState: WorkExpState = {
-    workplaces: []
+    workplaces: [createInitialWorkplace()]
 };
 
 const WorkExpSlice = createSlice({
@@ -21,14 +29,7 @@ const WorkExpSlice = createSlice({
     initialState,
     reducers: {
         addWorkplace(state) {
-            const initialWorkPlace: WorkPlace = {
-                company: '',
-                job: '',
-                workPeriodStart: '',
-                workPeriodEnd: '',
-                description: ''
-            };
-            state.workplaces.push(initialWorkPlace);
+            state.workplaces.push(createInitialWorkplace());
         },
         updateWorkplace(
             state,
