@@ -13,7 +13,7 @@ export const Preview: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const componentRef = useRef<HTMLDivElement>(null);
 
-    const showModal = () => setIsModalOpen(true);
+    const handleModal = () => setIsModalOpen(true);
     const handleCancel = () => setIsModalOpen(false);
     const handlePrint = useReactToPrint({
         content: () => componentRef.current
@@ -29,7 +29,7 @@ export const Preview: React.FC = () => {
                     width: '100px',
                     height: '100px'
                 }}
-                onClick={showModal}
+                onClick={handleModal}
             />
             <Modal
                 open={isModalOpen}
